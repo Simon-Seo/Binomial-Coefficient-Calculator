@@ -27,5 +27,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view){
+        switch(view.getId()){
+            case R.id.button_calculate:
+                int int_n = Integer.parseInt(editText_int_n.getText().toString());
+                int int_k = Integer.parseInt(editText_int_k.getText().toString());
+
+                String string_output;
+                if (int_n >= int_k) {
+                    int int_nCk = choose(int_n, int_k);
+                    string_output = String.valueOf(int_nCk);
+                } else {
+                    string_output = "undefined";
+                }
+
+                textView_output.setText(string_output);
+                break;
+        }
+    }
+
+    public int choose(int n, int k) {
+        if (k == 0) {
+            return 1;
+        }
+        if (k > n/2) {
+            return choose(n, n-k);
+        }
+        return n * choose(n-1, k-1) / k;
     }
 }
