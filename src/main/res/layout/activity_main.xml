@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Integer n:"
-        android:id="@+id/textView_int_n"
+        android:id="@+id/textView_BigInteger_n"
         android:layout_marginTop="48dp"
         android:layout_below="@+id/textView_title"
         android:layout_alignLeft="@+id/textView_title"
@@ -35,11 +35,11 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText_int_n"
+        android:id="@+id/editText_BigInteger_n"
         android:layout_marginTop="16dp"
-        android:layout_below="@+id/textView_int_n"
-        android:layout_alignLeft="@+id/textView_int_n"
-        android:layout_alignStart="@+id/textView_int_n"
+        android:layout_below="@+id/textView_BigInteger_n"
+        android:layout_alignLeft="@+id/textView_BigInteger_n"
+        android:layout_alignStart="@+id/textView_BigInteger_n"
         android:layout_alignRight="@+id/textView_title"
         android:layout_alignEnd="@+id/textView_title" />
 
@@ -48,33 +48,33 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Integer k:"
-        android:id="@+id/textView_int_k"
+        android:id="@+id/textView_BigInteger_k"
         android:layout_marginTop="24dp"
-        android:layout_below="@+id/editText_int_n"
-        android:layout_alignLeft="@+id/editText_int_n"
-        android:layout_alignStart="@+id/editText_int_n" />
+        android:layout_below="@+id/editText_BigInteger_n"
+        android:layout_alignLeft="@+id/editText_BigInteger_n"
+        android:layout_alignStart="@+id/editText_BigInteger_n" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText_int_k"
+        android:id="@+id/editText_BigInteger_k"
         android:layout_marginTop="16dp"
-        android:layout_below="@+id/textView_int_k"
-        android:layout_alignLeft="@+id/textView_int_k"
-        android:layout_alignStart="@+id/textView_int_k"
-        android:layout_alignRight="@+id/editText_int_n"
-        android:layout_alignEnd="@+id/editText_int_n" />
+        android:layout_below="@+id/textView_BigInteger_k"
+        android:layout_alignLeft="@+id/textView_BigInteger_k"
+        android:layout_alignStart="@+id/textView_BigInteger_k"
+        android:layout_alignRight="@+id/editText_BigInteger_n"
+        android:layout_alignEnd="@+id/editText_BigInteger_n" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calculate nCk"
+        android:text="Calculate"
         android:id="@+id/button_calculate"
-        android:layout_below="@+id/editText_int_k"
-        android:layout_alignLeft="@+id/editText_int_k"
-        android:layout_alignStart="@+id/editText_int_k"
+        android:layout_below="@+id/editText_BigInteger_k"
+        android:layout_alignLeft="@+id/editText_BigInteger_k"
+        android:layout_alignStart="@+id/editText_BigInteger_k"
         android:layout_marginTop="32dp" />
 
     <TextView
@@ -86,7 +86,7 @@
         android:layout_alignLeft="@+id/button_calculate"
         android:layout_alignStart="@+id/button_calculate"
         android:layout_marginTop="22dp"
-        android:layout_alignRight="@+id/editText_int_k"
-        android:layout_alignEnd="@+id/editText_int_k" />
+        android:layout_alignRight="@+id/editText_BigInteger_k"
+        android:layout_alignEnd="@+id/editText_BigInteger_k" />
 
 </RelativeLayout>
