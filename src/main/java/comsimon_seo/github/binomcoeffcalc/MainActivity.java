@@ -29,15 +29,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view){
         switch(view.getId()){
             case R.id.button_calculate:
-                int int_n = Integer.parseInt(editText_int_n.getText().toString());
-                int int_k = Integer.parseInt(editText_int_k.getText().toString());
+                String string_n = editText_int_n.getText().toString();
+                String string_k = editText_int_k.getText().toString();
+                int int_n = -1;
+                int int_k = 0;
+
+                if (!string_n.equals("")&&!string_k.equals("")) {
+                    int_n = Integer.parseInt(string_n);
+                    int_k = Integer.parseInt(string_k);
+                }
 
                 String string_output;
                 if (int_n >= int_k) {
                     int int_nCk = choose(int_n, int_k);
                     string_output = String.valueOf(int_nCk);
                 } else {
-                    string_output = "undefined";
+                    string_output = "0";
                 }
 
                 textView_output.setText(string_output);
