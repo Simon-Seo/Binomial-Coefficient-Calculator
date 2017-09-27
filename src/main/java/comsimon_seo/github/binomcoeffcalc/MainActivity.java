@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,6 +14,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button button_calculate, button_copyToClipboard;
     TextView textView_output;
     EditText editText_BigInteger_n, editText_BigInteger_k;
+    InputMethodManager inputMethodManager;
+    android.content.ClipboardManager clipboardManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textView_output = (TextView)findViewById(R.id.textView_output);
         editText_BigInteger_n = (EditText)findViewById(R.id.editText_BigInteger_n);
         editText_BigInteger_k = (EditText)findViewById(R.id.editText_BigInteger_k);
+        inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        clipboardManager = (android.content.ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
 
         button_calculate.setOnClickListener(this);
         button_copyToClipboard.setOnClickListener(this);
@@ -33,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view){
         switch(view.getId()){
             case R.id.button_calculate:
+                inputMethodManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 String string_n = editText_BigInteger_n.getText().toString();
                 String string_k = editText_BigInteger_k.getText().toString();
                 BigInteger BigInteger_n = new BigInteger("-1");
@@ -54,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 textView_output.setText(string_output);
                 break;
             case R.id.button_copyToClipboard:
-                copyToClipboard(this, textView_output.getText().toString());
+                copyToClipboard(textView_output.getText().toString());
                 break;
         }
     }
@@ -69,8 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return n.multiply(choose(n.subtract(BigInteger.ONE), k.subtract(BigInteger.ONE))).divide(k);
     }
 
-    private void copyToClipboard(Context context, String string) {
-        final android.content.ClipboardManager clipboardManager = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+    private void copyToClipboard(String string) {
         android.content.ClipData clip = android.content.ClipData.newPlainText("Copied to clipboard", string);
         clipboardManager.setPrimaryClip(clip);
     }
